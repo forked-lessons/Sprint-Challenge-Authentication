@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import requiresAuth from './requireAuth';
-
+import './jokes.scss';
 const Users = () => {
   const [jokes, setJokes] = useState([]);
 
@@ -18,15 +18,17 @@ const Users = () => {
   }, []);
 
   return (
-    <>
+    <section>
       <h2>List of Jokes</h2>
 
-      <ul>
+      <ul className="jokes">
         {jokes.map(joke => (
-          <li key={joke.id}>{joke.joke}</li>
+          <li key={joke.id} className="joke">
+            {joke.joke}
+          </li>
         ))}
       </ul>
-    </>
+    </section>
   );
 };
 

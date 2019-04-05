@@ -38,7 +38,7 @@ function register(req, res) {
         .catch(err => {
           res
             .status(500)
-            .json({ error: 'There was an error registering user.', err: err });
+            .json({ error: 'There was an error registering user.', err });
         });
     })
     .catch(err => res.status(500).json({ 'error registering user': err }));

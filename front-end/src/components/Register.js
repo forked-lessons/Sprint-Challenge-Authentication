@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
+import './auth.scss';
 const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = e => {
     e.preventDefault();
-    const endpoint = 'http://localhost:3300/api/auth/register';
+    const endpoint = 'http://localhost:3300/api/register';
     axios.post(endpoint, { username, password }).then(res => {
       console.log('Register Response', res);
     });
