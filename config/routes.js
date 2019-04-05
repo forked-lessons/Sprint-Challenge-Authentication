@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const { authenticate } = require('../auth/authenticate');
 const Users = require('../database/dbConfig');
 const jwt = require('jsonwebtoken');
+// const dotenv = require('dotenv');
 module.exports = server => {
   server.post('/api/register', register);
   server.post('/api/login', login);
@@ -14,7 +15,7 @@ const genToken = user => {
     username: user.username
   };
 
-  const secret = 'Lets keep this between us';
+  const secret = process.env.JWT_SECRET;
 
   const options = {
     expiresIn: '24h',
